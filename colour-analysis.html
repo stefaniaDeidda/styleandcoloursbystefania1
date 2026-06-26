@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colour Analysis | Style & Colour by Stefania</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #F7F3EE;
+      --cream-dark: #EDE6DC;
+      --burgundy:   #7C2D3E;
+      --terracotta: #B5644A;
+      --gold:       #C4A25A;
+      --dusty-rose: #C49090;
+      --ink:        #2B1F1F;
+      --mid:        #6B5A5A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 4rem;
+      background: rgba(247, 243, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(124, 45, 62, 0.12);
+    }
+
+    .nav-logo img { height: 100px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--burgundy); }
+
+    .nav-dropdown { position: relative; }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--cream);
+      border: 1px solid rgba(124,45,62,0.12);
+      list-style: none;
+      padding: 0.75rem 0;
+      min-width: 180px;
+      z-index: 200;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover { background: var(--cream-dark); color: var(--burgundy); }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu { margin-top: 0; border-top: 2px solid var(--gold); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+
+    .btn-primary:hover { background: #5e1f2e; }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--burgundy);
+      color: var(--burgundy);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-outline:hover { background: var(--burgundy); color: var(--cream); }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 8rem 6rem;
+      background: var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 35%;
+      background: linear-gradient(160deg, var(--dusty-rose) 0%, var(--burgundy) 100%);
+      opacity: 0.15;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 580px;
+      margin-bottom: 2rem;
+    }
+
+    /* ── SWATCH BAND ── */
+    .swatch-band {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      height: 8px;
+    }
+
+    .sb1 { background: #7C2D3E; }
+    .sb2 { background: #A85060; }
+    .sb3 { background: #C49090; }
+    .sb4 { background: #C4A25A; }
+    .sb5 { background: #B5644A; }
+    .sb6 { background: #D4B5A8; }
+    .sb7 { background: #EDE6DC; }
+    .sb8 { background: #2B1F1F; }
+
+    /* ── INTRO SECTION ── */
+    .intro {
+      padding: 6rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .intro-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-left h2 em { font-style: italic; color: var(--burgundy); }
+
+    .intro-left p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-right {
+      padding-top: 1rem;
+    }
+
+    .intro-right p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-right p:last-child { margin-bottom: 0; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--burgundy);
+      padding: 5rem 8rem;
+      text-align: center;
+    }
+
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--cream);
+      line-height: 1.4;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pull-quote cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included {
+      padding: 6rem 8rem;
+      background: var(--cream-dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .included-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .included-left h2 em { font-style: italic; color: var(--burgundy); }
+
+    .included-left .rule {
+      width: 48px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 1rem 0 2rem;
+    }
+
+    .included-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .included-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .included-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.55rem;
+    }
+
+    /* ── PRICING CARD ── */
+    .pricing-card {
+      background: var(--cream);
+      border-top: 2px solid var(--gold);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pricing-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--burgundy);
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .pricing-price span {
+      font-size: 1.5rem;
+      vertical-align: super;
+      color: var(--mid);
+    }
+
+    .pricing-detail {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.7;
+      border-top: 1px solid rgba(124,45,62,0.1);
+      padding-top: 1.25rem;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--ink);
+      padding: 5rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .cta-banner h2 em { font-style: italic; color: var(--dusty-rose); }
+
+    .cta-banner p {
+      font-size: 0.92rem;
+      color: rgba(247,243,238,0.65);
+      margin-top: 0.75rem;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      white-space: nowrap;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-gold:hover { background: var(--gold); color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream-dark);
+      padding: 2.5rem 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(124,45,62,0.12);
+    }
+
+    footer img { height: 60px; }
+
+    footer p {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+
+      .hero { padding: 8rem 1.5rem 4rem; }
+      .hero::before { display: none; }
+
+      .intro,
+      .included { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+
+      .pull-quote { padding: 3.5rem 1.5rem; }
+
+      .cta-banner { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; }
+
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Style & Colour by Stefania" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html" class="active">Services ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="colour-analysis.html" class="active">Colour Analysis</a></li>
+        <li><a href="wardrobe-edit.html">Wardrobe Edit</a></li>
+        <li><a href="contact.html">Gift Vouchers</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Services — Colour Analysis</span>
+    <h1>See yourself in<br/>your <em>best colours.</em></h1>
+    <p>There is something truly special about seeing yourself in the right colours. The shades that suit you best can brighten your complexion, soften or lift your features, and bring a lovely sense of balance to the way you look.</p>
+    <a href="contact.html" class="btn-primary">Book Your Colour Analysis</a>
+  </div>
+</section>
+
+<!-- SWATCH BAND -->
+<div class="swatch-band">
+  <div class="sb1"></div>
+  <div class="sb2"></div>
+  <div class="sb3"></div>
+  <div class="sb4"></div>
+  <div class="sb5"></div>
+  <div class="sb6"></div>
+  <div class="sb7"></div>
+  <div class="sb8"></div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-left">
+    <span class="eyebrow">What it's about</span>
+    <h2>Colours that work<br/>in harmony with<br/><em>your natural colouring.</em></h2>
+    <p>More than just looking good, the right colours can help you feel more confident, more polished, and more at ease in your own skin.</p>
+    <p>In my colour analysis sessions, I use a full seasonal draping method to discover the shades that naturally work in harmony with your colouring. I'll guide you through the process with care and clarity, helping you see which colours enhance your skin, eyes, and overall appearance in the most flattering way.</p>
+  </div>
+  <div class="intro-right">
+    <p>As a certified colour analyst, I'll take you through the process of discovering your own most flattering colours — as well as the shades you may want to avoid. This service saves you time, money, and second-guessing by teaching you how to choose colours that naturally enhance you and align with your wardrobe, style, and needs.</p>
+    <p>Knowing your colours can make getting dressed feel so much easier. Instead of standing in front of your wardrobe feeling unsure, you'll have a palette that helps you quickly spot what suits you and what doesn't. Shopping becomes calmer, simpler, and far more enjoyable — and over time, you'll build a wardrobe that works beautifully together and feels more like you every day.</p>
+    <p>This is a calm, personal experience designed to give you confidence and understanding, not confusion.</p>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <blockquote>
+    "You'll leave knowing exactly which colours support you best — every time you get dressed or go shopping."
+  </blockquote>
+  <cite>— Stefania</cite>
+</div>
+
+<!-- WHAT'S INCLUDED + PRICING -->
+<section class="included">
+  <div class="included-left">
+    <span class="eyebrow">What's included</span>
+    <h2>Everything you need<br/>to feel <em>confident.</em></h2>
+    <div class="rule"></div>
+    <ul class="included-list">
+      <li>A full seasonal draping consultation.</li>
+      <li>Personal analysis with a certified colour analyst.</li>
+      <li>Identification of the shades that flatter you most.</li>
+      <li>Guidance on how to wear your colours with ease.</li>
+      <li>Tips on colour blocking and combining shades successfully.</li>
+      <li>A personalised seasonal fabric swatch palette to take away.</li>
+      <li>Ongoing advice after your appointment.</li>
+    </ul>
+  </div>
+  <div class="included-right">
+    <div class="pricing-card">
+      <h3>Colour Analysis</h3>
+      <div class="pricing-price"><span>£</span>130</div>
+      <div class="pricing-detail">
+        <p>Up to 2 hours, in person.</p>
+        <p style="margin-top:0.75rem;">Additional mileage will be charged for travel over 25 miles.</p>
+      </div>
+      <a href="contact.html" class="btn-primary" style="align-self:flex-start; margin-top:0.5rem;">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div>
+    <h2>Ready to discover<br/>your <em>best colours?</em></h2>
+    <p>Get in touch and let's find a time that works for you.</p>
+  </div>
+  <a href="contact.html" class="btn-gold">Book a Consultation</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="Style & Colour by Stefania" />
+  <p>© 2025 Style & Colour by Stefania · Cambridge, UK</p>
+</footer>
+
+
+<script>
+  document.querySelectorAll(".nav-dropdown > a").forEach(function(link) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      var parent = this.parentElement;
+      var isOpen = parent.classList.contains("open");
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+      if (!isOpen) parent.classList.add("open");
+    });
+  });
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".nav-dropdown")) {
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+    }
+  });
+</script>
+</body>
+</html>

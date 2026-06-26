@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in Touch | Style & Colour by Stefania</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #F7F3EE;
+      --cream-dark: #EDE6DC;
+      --burgundy:   #7C2D3E;
+      --terracotta: #B5644A;
+      --gold:       #C4A25A;
+      --dusty-rose: #C49090;
+      --ink:        #2B1F1F;
+      --mid:        #6B5A5A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 4rem;
+      background: rgba(247, 243, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(124, 45, 62, 0.12);
+    }
+
+    .nav-logo img { height: 100px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--burgundy); }
+
+    .nav-dropdown { position: relative; }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--cream);
+      border: 1px solid rgba(124,45,62,0.12);
+      list-style: none;
+      padding: 0.75rem 0;
+      min-width: 200px;
+      z-index: 200;
+      margin-top: 0;
+      border-top: 2px solid var(--gold);
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover { background: var(--cream-dark); color: var(--burgundy); }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 8rem 5rem;
+      background: var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 30%;
+      background: linear-gradient(160deg, var(--dusty-rose) 0%, var(--burgundy) 100%);
+      opacity: 0.1;
+    }
+
+    .hero-inner {
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--burgundy); }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 520px;
+    }
+
+    /* ── SWATCH BAND ── */
+    .swatch-band {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      height: 8px;
+    }
+    .sb1 { background: #7C2D3E; }
+    .sb2 { background: #A85060; }
+    .sb3 { background: #C49090; }
+    .sb4 { background: #C4A25A; }
+    .sb5 { background: #B5644A; }
+    .sb6 { background: #D4B5A8; }
+    .sb7 { background: #EDE6DC; }
+    .sb8 { background: #2B1F1F; }
+
+    /* ── MAIN LAYOUT ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      padding: 6rem 8rem;
+      align-items: start;
+    }
+
+    /* ── LEFT PANEL ── */
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info h2 em { font-style: italic; color: var(--burgundy); }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .rule {
+      width: 48px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .contact-detail-item span:first-child {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .contact-detail-item span:last-child {
+      font-size: 0.95rem;
+      color: var(--mid);
+    }
+
+    .contact-detail-item a {
+      font-size: 0.95rem;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail-item a:hover { color: var(--burgundy); }
+
+    .services-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .services-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--mid);
+    }
+
+    .services-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      min-width: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ── FORM ── */
+    .contact-form {
+      background: var(--cream-dark);
+      padding: 3rem;
+      border-top: 2px solid var(--gold);
+    }
+
+    .contact-form h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid rgba(124,45,62,0.2);
+      padding: 0.85rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-submit {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: #5e1f2e; }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--mid);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── SUCCESS MESSAGE ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .form-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+    }
+
+    .form-success p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream-dark);
+      padding: 2.5rem 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(124,45,62,0.12);
+    }
+
+    footer img { height: 60px; }
+
+    footer p {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+      .hero::before { display: none; }
+      .contact-layout { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Style & Colour by Stefania" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="colour-analysis.html">Colour Analysis</a></li>
+        <li><a href="personal-shopping-online.html">Personal Shopping Online</a></li>
+        <li><a href="wardrobe-edit.html">Wardrobe Edit</a></li>
+        <li><a href="contact.html">Gift Vouchers</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html" class="active">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Get in Touch</span>
+    <h1>Let's find your<br/><em>best colours.</em></h1>
+    <p>Whether you have a question, want to find out more about a service, or are ready to book — I'd love to hear from you. Fill in the form and I'll be in touch shortly.</p>
+  </div>
+</section>
+
+<!-- SWATCH BAND -->
+<div class="swatch-band">
+  <div class="sb1"></div><div class="sb2"></div><div class="sb3"></div><div class="sb4"></div>
+  <div class="sb5"></div><div class="sb6"></div><div class="sb7"></div><div class="sb8"></div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="contact-layout">
+
+  <!-- LEFT: INFO -->
+  <div class="contact-info">
+    <span class="eyebrow">Contact</span>
+    <h2>I'd love to<br/><em>hear from you.</em></h2>
+    <p>Every session starts with a conversation. Tell me a little about what you're looking for and I'll get back to you within 48 hours to discuss the best way I can help.</p>
+    <div class="rule"></div>
+    <div class="contact-detail">
+      <div class="contact-detail-item">
+        <span>Location</span>
+        <span>Cambridge, UK</span>
+      </div>
+      <div class="contact-detail-item">
+        <span>Email</span>
+        <a href="mailto:info@styleandcolourbystefania.com">info@styleandcolourbystefania.com</a>
+      </div>
+      <div class="contact-detail-item">
+        <span>Response time</span>
+        <span>Within 48 hours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="contact-form">
+    <h3>Book your session</h3>
+    <div id="form-container">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First Name *</label>
+          <input type="text" id="first-name" placeholder="Your first name" required />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name *</label>
+          <input type="text" id="last-name" placeholder="Your last name" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Your phone number" />
+      </div>
+      <div class="form-group">
+        <label for="service">Service you're interested in *</label>
+        <select id="service" required>
+          <option value="" disabled selected>Please select a service</option>
+          <option value="colour-analysis">Colour Analysis — £130</option>
+          <option value="personal-shopping">Personal Shopping Online — £150</option>
+          <option value="wardrobe-edit">Wardrobe Edit — from £180</option>
+          <option value="gift-voucher">Gift Voucher</option>
+          <option value="not-sure">Not sure yet — happy to chat</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="location">Your Location</label>
+        <input type="text" id="location" placeholder="Town or city" />
+      </div>
+      <div class="form-group">
+        <label for="message">Tell me a little about what you're looking for</label>
+        <textarea id="message" placeholder="Any details that might help me prepare for our conversation…"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="how">How did you hear about me?</label>
+        <select id="how">
+          <option value="" disabled selected>Please select</option>
+          <option value="instagram">Instagram</option>
+          <option value="google">Google</option>
+          <option value="recommendation">Personal recommendation</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Message</button>
+      <p class="form-note">* Required fields. I'll be in touch within 48 hours. Your details will never be shared with third parties.</p>
+    </div>
+    <div class="form-success" id="form-success">
+      <h3>Thank you!</h3>
+      <p>Your message has been sent. I'll be in touch within 48 hours to discuss how I can help.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="Style & Colour by Stefania" />
+  <p>© 2025 Style & Colour by Stefania · Cambridge, UK</p>
+</footer>
+
+<script>
+  document.querySelectorAll(".nav-dropdown > a").forEach(function(link) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      var parent = this.parentElement;
+      var isOpen = parent.classList.contains("open");
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+      if (!isOpen) parent.classList.add("open");
+    });
+  });
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".nav-dropdown")) {
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+    }
+  });
+
+  function submitForm() {
+    var firstName = document.getElementById("first-name").value;
+    var email = document.getElementById("email").value;
+    var service = document.getElementById("service").value;
+    if (!firstName || !email || !service) {
+      alert("Please fill in all required fields before submitting.");
+      return;
+    }
+    document.getElementById("form-container").style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
