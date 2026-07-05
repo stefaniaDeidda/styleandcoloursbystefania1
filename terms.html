@@ -225,6 +225,46 @@
       margin-top: 0.6rem;
     }
 
+    .cancellation-table-wrap {
+      margin-top: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .cancellation-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .cancellation-table th,
+    .cancellation-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(124,45,62,0.12);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .cancellation-table th {
+      color: var(--ink);
+      font-weight: 600;
+      background: rgba(237,230,220,0.55);
+    }
+
+    .cancellation-table td:first-child {
+      width: 34%;
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .cancellation-table td:last-child {
+      color: var(--mid);
+    }
+
+    .cancellation-table tr:last-child td {
+      border-bottom: none;
+    }
+
     .highlight-box {
       background: var(--cream-dark);
       border-left: 3px solid var(--gold);
@@ -366,11 +406,30 @@
     <h2>5. Cancellation Policy</h2>
     <div class="rule"></div>
     <p>We understand that plans can change. Our cancellation policy is as follows:</p>
-    <ul>
-      <li><strong style="color:var(--ink); font-weight:500;">More than 48 hours before your session</strong> — your deposit will be retained as a cancellation fee. You will not be charged the remaining balance.</li>
-      <li><strong style="color:var(--ink); font-weight:500;">Less than 48 hours before your session</strong> — the full session fee is retained. As the remaining balance will have already been collected at this point, no further charge will apply.</li>
-      <li><strong style="color:var(--ink); font-weight:500;">No-show</strong> — if you do not attend your session without prior notice, the full session fee is retained and no rescheduling will be offered.</li>
-    </ul>
+    <div class="cancellation-table-wrap">
+      <table class="cancellation-table">
+        <thead>
+          <tr>
+            <th>Situation</th>
+            <th>What happens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>More than 48 hours before your session</td>
+            <td>Your deposit will be retained as a cancellation fee. You will not be charged the remaining balance.</td>
+          </tr>
+          <tr>
+            <td>Less than 48 hours before your session</td>
+            <td>The full session fee is retained. As the remaining balance will have already been collected at this point, no further charge will apply.</td>
+          </tr>
+          <tr>
+            <td>No-show</td>
+            <td>If you do not attend your session without prior notice, the full session fee is retained and no rescheduling will be offered.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p style="margin-top:1rem;">All cancellations must be made in writing by email to <a href="mailto:info@styleandcolourbystefania.com" style="color:var(--burgundy);">info@styleandcolourbystefania.com</a>.</p>
   </div>
 
