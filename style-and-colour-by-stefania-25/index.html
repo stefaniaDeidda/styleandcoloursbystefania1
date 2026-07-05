@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style & Colour by Stefania | Colour Analysis & Personal Styling in Cambridge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --cream:      #F7F3EE;
+      --cream-dark: #EDE6DC;
+      --burgundy:   #7C2D3E;
+      --terracotta: #B5644A;
+      --gold:       #C4A25A;
+      --dusty-rose: #C49090;
+      --ink:        #2B1F1F;
+      --mid:        #6B5A5A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 4rem;
+      background: rgba(247, 243, 238, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(124, 45, 62, 0.12);
+    }
+    .nav-logo img { height: 100px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--burgundy); }
+
+    .nav-dropdown { position: relative; }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--cream);
+      border: 1px solid rgba(124,45,62,0.12);
+      list-style: none;
+      padding: 0.75rem 0;
+      min-width: 180px;
+      z-index: 200;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover { background: var(--cream-dark); color: var(--burgundy); }
+
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu { margin-top: 0; border-top: 2px solid var(--gold); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+
+    .btn-primary:hover { background: #5e1f2e; }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--burgundy);
+      color: var(--burgundy);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-outline:hover { background: var(--burgundy); color: var(--cream); }
+
+    .eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      padding-top: 130px;
+      padding-bottom: 6rem;
+      padding-left: 8rem;
+      padding-right: 8rem;
+      gap: 6rem;
+      align-items: center;
+      background: var(--cream);
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+
+    .hero-text .hero-intro {
+      font-size: 0.95rem;
+      color: var(--mid);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 0.75rem;
+      line-height: 1.9;
+    }
+
+    .hero-text p {
+      font-size: 0.92rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin-bottom: 1rem;
+      line-height: 1.9;
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-portrait {
+      position: relative;
+      width: 280px;
+    }
+
+    .hero-image-portrait img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-portrait::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--dusty-rose);
+      z-index: 0;
+    }
+
+    .hero-image-portrait::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--gold);
+      z-index: 0;
+    }
+
+    /* ── COLOUR STRIP ── */
+    .colour-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 6px;
+    }
+
+    .cs1 { background: var(--burgundy); }
+    .cs2 { background: var(--dusty-rose); }
+    .cs3 { background: var(--terracotta); }
+    .cs4 { background: var(--gold); }
+    .cs5 { background: var(--cream-dark); }
+
+    /* ── INTRO ── */
+    .intro {
+      padding: 7rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .intro-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-text h2 em { font-style: italic; color: var(--burgundy); }
+
+    .intro-text p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-image {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .intro-image-fill {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--burgundy) 100%);
+    }
+
+    .intro-image-fill img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro-image-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: -1rem;
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--gold);
+      max-width: 220px;
+      z-index: 2;
+    }
+
+    .intro-image-badge p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--cream-dark);
+      padding: 6rem 8rem;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .services-header h2 em { font-style: italic; color: var(--burgundy); }
+
+    .services-header p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 3rem;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 1.25rem;
+      border-top: 2px solid var(--gold);
+      transition: box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(43,31,31,0.08);
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      min-height: 2.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+    }
+
+    .service-card .service-detail {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--burgundy);
+      padding: 5rem 8rem;
+      text-align: center;
+    }
+
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      color: var(--cream);
+      line-height: 1.4;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pull-quote cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 6rem 8rem;
+      background: var(--cream);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .testimonials-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--ink);
+    }
+
+    .testimonials-header h2 em { font-style: italic; color: var(--burgundy); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      padding: 2.5rem;
+      background: var(--cream-dark);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--dusty-rose);
+      line-height: 1;
+      display: block;
+      margin-bottom: -1rem;
+      opacity: 0.6;
+    }
+
+    .testimonial-card p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-card cite {
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      background: var(--cream-dark);
+      padding: 6rem 8rem;
+    }
+
+    .how h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .how h2 em { font-style: italic; color: var(--burgundy); }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .how-step {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .how-step-number {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+    }
+
+    .how-step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .how-step p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+
+    /* ── GIFT VOUCHER ── */
+    .gift-voucher {
+      background: var(--cream-dark);
+      padding: 4rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      border-top: 1px solid rgba(124,45,62,0.12);
+      border-bottom: 1px solid rgba(124,45,62,0.12);
+    }
+
+    .gift-voucher-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .gift-voucher-text h2 em { font-style: italic; color: var(--burgundy); }
+
+    .gift-voucher-text p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+      max-width: 520px;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--ink);
+      padding: 5rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .cta-banner h2 em { font-style: italic; color: var(--dusty-rose); }
+
+    .cta-banner p {
+      font-size: 0.95rem;
+      color: rgba(247,243,238,0.65);
+      margin-top: 0.75rem;
+      max-width: 500px;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      white-space: nowrap;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-gold:hover { background: var(--gold); color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream-dark);
+      padding: 2.5rem 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(124,45,62,0.12);
+    }
+
+    footer img { height: 44px; }
+
+    footer p {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.6rem; }
+
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 3rem; }
+      .hero-image { justify-content: center; }
+      .hero-image-portrait { width: 200px; }
+      .hero-image-portrait img { height: 280px; }
+
+      .intro { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      .intro-image { height: 300px; }
+      .intro-image-badge { right: 0; }
+
+      .services { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+
+      .gift-voucher { grid-template-columns: 1fr; padding: 3rem 1.5rem; text-align: center; }
+      .gift-voucher-text p { margin: 0 auto; }
+
+      .pull-quote { padding: 3.5rem 1.5rem; }
+
+      .testimonials { padding: 4rem 1.5rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .how { padding: 4rem 1.5rem; }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+
+      .cta-banner { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; text-align: center; }
+      .cta-banner p { margin: 0.75rem auto 0; }
+      .btn-gold { margin-top: 0.5rem; }
+
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Style & Colour by Stefania" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="colour-analysis.html">Colour Analysis</a></li>
+        <li><a href="wardrobe-edit.html">Wardrobe Edit</a></li>
+        <li><a href="gift-vouchers.html">Gift Vouchers</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Colour Analysis & Personal Styling · Cambridge</span>
+    <h1>Create Confidence with<br/><em>Style That Lasts.</em></h1>
+    <p class="hero-intro">Imagine opening your wardrobe and knowing that everything in it works for you. No more second-guessing, no more unworn pieces, no more wondering why something doesn't quite feel right. Instead, you have colours that bring your complexion to life, outfits that feel effortless to put together, and a style that reflects who you are with quiet confidence.</p>
+    <p class="hero-intro">When you understand what truly suits you, getting dressed becomes a pleasure rather than a task. You feel more put-together, more at ease, and more like yourself in every setting, whether that's everyday life, work, or special occasions.</p>
+    <p class="hero-intro">I'm here to guide you through that process. Together, we'll discover your most flattering colours and refine your personal style, so you can build a wardrobe that feels simple, intentional, and entirely your own.</p>
+    <div class="hero-buttons">
+      <a href="services.html" class="btn-outline">Explore My Services</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-portrait">
+      <img src="stefania.jpg" alt="Stefania" />
+    </div>
+  </div>
+</section>
+
+
+<!-- FAMOUS QUOTE -->
+<div class="pull-quote" style="background: var(--cream-dark);">
+  <blockquote style="color: var(--ink);">
+    "The best colour in the whole world is the one that looks good on you."
+  </blockquote>
+  <cite style="color: var(--terracotta);">— Coco Chanel</cite>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <span class="eyebrow">What I offer</span>
+    <h2>Everything you need to feel <em>truly yourself.</em></h2>
+    <p>Whether you're starting with colour, rethinking your wardrobe, or looking for a meaningful gift — each session is personal, unhurried, and built entirely around you.</p>
+  </div>
+  <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="service-card">
+      <h3>Colour Analysis</h3>
+      <p class="service-detail">In-person</p>
+      <p>Using a full seasonal draping methodology, I identify the specific tones that make your skin glow, your eyes brighten, and your whole face come alive. You'll leave with a personalised fabric swatch palette to carry with you every time you shop.</p>
+      <a href="colour-analysis.html" class="btn-primary" style="align-self:flex-start;">Find Out More</a>
+    </div>
+    <div class="service-card">
+      <h3>Personal Styling</h3>
+      <p class="service-detail">In-person</p>
+      <p>Beyond colour, I help you build a wardrobe that works for your life — your shape, your lifestyle, your budget. From personal shopping to outfit planning, every session is practical, personal, and full of those lightbulb moments.</p>
+      <a href="personal-styling.html" class="btn-primary" style="align-self:flex-start;">Find Out More</a>
+    </div>
+    <div class="service-card">
+      <h3>Wardrobe Edit</h3>
+      <p class="service-detail">In-person</p>
+      <p>Sometimes your wardrobe just needs a fresh pair of eyes. I'll come to you, help you sort through what you have, identify what works and what doesn't, and leave you with a wardrobe that feels intentional, versatile, and entirely yours.</p>
+      <a href="services.html" class="btn-primary" style="align-self:flex-start;">Find Out More</a>
+    </div>
+    <div class="service-card">
+      <h3>Gift Vouchers</h3>
+      <p class="service-detail">For any service</p>
+      <p>Not sure what to buy for someone special? A gift voucher makes a truly personal and thoughtful present — for a birthday, a milestone, or simply because. Available for all sessions.</p>
+      <a href="gift-vouchers.html" class="btn-primary" style="align-self:flex-start;">Find Out More</a>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <blockquote>
+    "You already have your own natural beauty. My job is simply to find the colours that let it shine — and watch your confidence follow."
+  </blockquote>
+  <cite>— Stefania</cite>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <span class="eyebrow">Kind words</span>
+    <h2>What my clients <em>say.</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p>I really enjoyed the session, thank you so much! It was so helpful and I feel much more confident about choosing the right colours now. I loved how you explained how different colours affect facial features and what to look for — it made everything easy to understand.</p>
+      <cite>— Sumi, Cambridge</cite>
+    </div>
+    <div class="testimonial-card">
+      <p>The most valuable use of a couple of hours I've had all year! Your friendly and professional approach made it so easy and I could immediately see the difference. I also found the colour swatch so useful during my shopping trips.</p>
+      <cite>— Anya, Cambridge</cite>
+    </div>
+    <div class="testimonial-card">
+      <p>My session was a fascinating experience and you were great at bringing all the science to life. Who knew colour could make such a difference to my complexion. Thank you also for taking me through the different colour blocking.</p>
+      <cite>— Abby, Cambridge</cite>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>How it <em>works.</em></h2>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-step-number">1</div>
+      <h3>Get in touch</h3>
+      <p>Drop me a message and we'll find a date and time that works for you.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-number">2</div>
+      <h3>We meet</h3>
+      <p>Your session takes place in person in Cambridge — relaxed, unhurried, and just for you.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-number">3</div>
+      <h3>Discover your colours</h3>
+      <p>Through seasonal draping and open conversation, we uncover what truly works for you.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-number">4</div>
+      <h3>Take it home</h3>
+      <p>You leave with your personalised fabric swatch palette and the confidence to use it every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div>
+    <h2>Ready to find the colours<br/>that are <em>truly yours?</em></h2>
+    <p>Sessions are available in Cambridge. Get in touch and let's find a time that works for you.</p>
+  </div>
+  <a href="contact.html" class="btn-gold">Book a Consultation</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="Style & Colour by Stefania" style="height: 60px;" />
+  <p>© 2025 Style & Colour by Stefania · Cambridge, UK · <a href="terms.html" style="color:var(--mid); text-decoration:none;">Terms & Conditions</a></p>
+</footer>
+
+
+<script>
+  document.querySelectorAll(".nav-dropdown > a").forEach(function(link) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      var parent = this.parentElement;
+      var isOpen = parent.classList.contains("open");
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+      if (!isOpen) parent.classList.add("open");
+    });
+  });
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".nav-dropdown")) {
+      document.querySelectorAll(".nav-dropdown").forEach(function(d) { d.classList.remove("open"); });
+    }
+  });
+</script>
+</body>
+</html>

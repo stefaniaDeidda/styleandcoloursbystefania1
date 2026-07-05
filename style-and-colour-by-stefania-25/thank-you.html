@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Style & Colour by Stefania</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F7F3EE;
+      --burgundy: #7C2D3E;
+      --gold: #C4A25A;
+      --ink: #2B1F1F;
+      --mid: #6B5A5A;
+      --cream-dark: #EDE6DC;
+      --terracotta: #B5644A;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    img { height: 120px; margin-bottom: 3rem; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    h1 em { font-style: italic; color: var(--burgundy); }
+
+    p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .rule {
+      width: 48px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 1.5rem auto 2rem;
+    }
+
+    a {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      transition: background 0.25s;
+    }
+
+    a:hover { background: #5e1f2e; }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Style & Colour by Stefania" />
+  <h1>Thank you for<br/><em>getting in touch.</em></h1>
+  <div class="rule"></div>
+  <p>I've received your message and will be in touch within 48 hours. I look forward to helping you discover your best colours and style.</p>
+  <a href="index.html">Back to Home</a>
+</body>
+</html>
