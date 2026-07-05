@@ -413,7 +413,7 @@
         <li><a href="colour-analysis.html">Colour Analysis</a></li>
         <li><a href="personal-shopping-online.html">Personal Shopping Online</a></li>
         <li><a href="wardrobe-edit.html">Wardrobe Edit</a></li>
-        <li><a href="contact.html">Gift Vouchers</a></li>
+        <li><a href="gift-vouchers.html">Gift Vouchers</a></li>
       </ul>
     </li>
     <li><a href="contact.html" class="active">Get in Touch</a></li>
@@ -464,59 +464,59 @@
   <div class="contact-form">
     <h3>Book your session</h3>
     <div id="form-container">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="first-name">First Name *</label>
-          <input type="text" id="first-name" placeholder="Your first name" required />
+      <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+        <input type="hidden" name="form-name" value="booking" />
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Your first name" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Your last name" required />
+          </div>
         </div>
         <div class="form-group">
-          <label for="last-name">Last Name *</label>
-          <input type="text" id="last-name" placeholder="Your last name" required />
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" placeholder="your@email.com" required />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Your phone number" />
-      </div>
-      <div class="form-group">
-        <label for="service">Service you're interested in *</label>
-        <select id="service" required>
-          <option value="" disabled selected>Please select a service</option>
-          <option value="colour-analysis">Colour Analysis — £130</option>
-          <option value="personal-shopping">Personal Shopping Online — £150</option>
-          <option value="wardrobe-edit">Wardrobe Edit — from £180</option>
-          <option value="gift-voucher">Gift Voucher</option>
-          <option value="not-sure">Not sure yet — happy to chat</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="location">Your Location</label>
-        <input type="text" id="location" placeholder="Town or city" />
-      </div>
-      <div class="form-group">
-        <label for="message">Tell me a little about what you're looking for</label>
-        <textarea id="message" placeholder="Any details that might help me prepare for our conversation…"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="how">How did you hear about me?</label>
-        <select id="how">
-          <option value="" disabled selected>Please select</option>
-          <option value="instagram">Instagram</option>
-          <option value="google">Google</option>
-          <option value="recommendation">Personal recommendation</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <button class="form-submit" onclick="submitForm()">Send Message</button>
-      <p class="form-note">* Required fields. I'll be in touch within 48 hours. Your details will never be shared with third parties.</p>
-    </div>
-    <div class="form-success" id="form-success">
-      <h3>Thank you!</h3>
-      <p>Your message has been sent. I'll be in touch within 48 hours to discuss how I can help.</p>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
+        </div>
+        <div class="form-group">
+          <label for="service">Service you're interested in *</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Please select a service</option>
+            <option value="colour-analysis">Colour Analysis — £130</option>
+            <option value="personal-shopping">Personal Shopping Online — £150</option>
+            <option value="wardrobe-edit">Wardrobe Edit — from £180</option>
+            <option value="gift-voucher">Gift Voucher</option>
+            <option value="not-sure">Not sure yet — happy to chat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="location">Your Location</label>
+          <input type="text" id="location" name="location" placeholder="Town or city" />
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me a little about what you're looking for</label>
+          <textarea id="message" name="message" placeholder="Any details that might help me prepare for our conversation…"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="how">How did you hear about me?</label>
+          <select id="how" name="how">
+            <option value="" disabled selected>Please select</option>
+            <option value="instagram">Instagram</option>
+            <option value="google">Google</option>
+            <option value="recommendation">Personal recommendation</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">* Required fields. I'll be in touch within 48 hours. Your details will never be shared with third parties.</p>
+      </form>
     </div>
   </div>
 
@@ -525,7 +525,7 @@
 <!-- FOOTER -->
 <footer>
   <img src="logo.png" alt="Style & Colour by Stefania" />
-  <p>© 2025 Style & Colour by Stefania · Cambridge, UK</p>
+  <p>© 2025 Style & Colour by Stefania · Cambridge, UK · <a href="terms.html" style="color:var(--mid); text-decoration:none;">Terms & Conditions</a></p>
 </footer>
 
 <script>

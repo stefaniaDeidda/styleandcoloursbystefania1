@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wardrobe Edit | Style & Colour by Stefania</title>
+  <title>Gift Vouchers | Style & Colour by Stefania</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -92,40 +92,6 @@
     .dropdown-menu li a:hover { background: var(--cream-dark); color: var(--burgundy); }
     .nav-dropdown.open .dropdown-menu { display: block; }
 
-    /* ── BUTTONS ── */
-    .btn-primary {
-      display: inline-block;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      background: var(--burgundy);
-      color: var(--cream);
-      border: none;
-      cursor: pointer;
-      transition: background 0.25s;
-    }
-    .btn-primary:hover { background: #5e1f2e; }
-
-    .btn-gold {
-      display: inline-block;
-      white-space: nowrap;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      transition: background 0.25s, color 0.25s;
-    }
-    .btn-gold:hover { background: var(--gold); color: var(--ink); }
-
     .eyebrow {
       display: block;
       font-family: 'Raleway', sans-serif;
@@ -139,11 +105,11 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 60vh;
+      min-height: 45vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 10rem 8rem 6rem;
+      padding: 9rem 8rem 5rem;
       background: var(--cream-dark);
       position: relative;
       overflow: hidden;
@@ -153,13 +119,13 @@
       content: '';
       position: absolute;
       right: 0; top: 0; bottom: 0;
-      width: 35%;
-      background: linear-gradient(160deg, var(--dusty-rose) 0%, var(--terracotta) 100%);
+      width: 30%;
+      background: linear-gradient(160deg, var(--dusty-rose) 0%, var(--burgundy) 100%);
       opacity: 0.12;
     }
 
     .hero-inner {
-      max-width: 700px;
+      max-width: 650px;
       position: relative;
       z-index: 1;
     }
@@ -170,17 +136,16 @@
       font-size: clamp(3rem, 5vw, 5.5rem);
       line-height: 1.05;
       color: var(--ink);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .hero h1 em { font-style: italic; color: var(--burgundy); }
 
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--mid);
       line-height: 1.9;
-      max-width: 580px;
-      margin-bottom: 2rem;
+      max-width: 520px;
     }
 
     /* ── SWATCH BAND ── */
@@ -198,17 +163,16 @@
     .sb7 { background: #EDE6DC; }
     .sb8 { background: #2B1F1F; }
 
-    /* ── INTRO ── */
-    .intro {
+    /* ── VOUCHER SECTION ── */
+    .voucher-section {
       padding: 6rem 8rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
-      align-items: start;
-      background: var(--cream);
+      align-items: center;
     }
 
-    .intro-left h2 {
+    .voucher-text h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-size: clamp(2rem, 3vw, 3rem);
@@ -217,19 +181,98 @@
       margin-bottom: 1.5rem;
     }
 
-    .intro-left h2 em { font-style: italic; color: var(--burgundy); }
+    .voucher-text h2 em { font-style: italic; color: var(--burgundy); }
 
-    .intro-left p, .intro-right p {
+    .voucher-text p {
       font-size: 1rem;
       color: var(--mid);
       line-height: 1.9;
       margin-bottom: 1.25rem;
     }
 
-    .intro-left p:last-child,
-    .intro-right p:last-child { margin-bottom: 0; }
+    .rule {
+      width: 48px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
 
-    .intro-right { padding-top: 1rem; }
+    .voucher-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .voucher-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .voucher-includes li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.55rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-primary:hover { background: #5e1f2e; }
+
+    /* ── VOUCHER IMAGE ── */
+    .voucher-image-wrap {
+      position: relative;
+    }
+
+    .voucher-image-wrap img {
+      width: 100%;
+      display: block;
+      box-shadow: 0 12px 48px rgba(43,31,31,0.15);
+    }
+
+    .voucher-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--dusty-rose);
+      z-index: -1;
+    }
+
+    .voucher-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--gold);
+      z-index: -1;
+    }
 
     /* ── PULL QUOTE ── */
     .pull-quote {
@@ -261,114 +304,6 @@
       color: var(--gold);
     }
 
-    /* ── WHAT'S INCLUDED ── */
-    .included {
-      padding: 6rem 8rem;
-      background: var(--cream-dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .included-left h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2rem, 3vw, 3rem);
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .included-left h2 em { font-style: italic; color: var(--burgundy); }
-
-    .rule {
-      width: 48px;
-      height: 1.5px;
-      background: var(--gold);
-      margin: 1rem 0 2rem;
-    }
-
-    .included-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-
-    .included-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      font-size: 0.95rem;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    .included-list li::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      min-width: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      margin-top: 0.55rem;
-    }
-
-    /* ── PRICING CARD ── */
-    .pricing-card {
-      background: var(--cream);
-      border-top: 2px solid var(--gold);
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .pricing-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--burgundy);
-    }
-
-    .pricing-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1;
-    }
-
-    .pricing-price span {
-      font-size: 1.5rem;
-      vertical-align: super;
-      color: var(--mid);
-    }
-
-    .pricing-detail {
-      font-size: 0.85rem;
-      color: var(--mid);
-      line-height: 1.7;
-      border-top: 1px solid rgba(124,45,62,0.1);
-      padding-top: 1.25rem;
-    }
-
-    /* ── TIP CARD ── */
-    .tip-card {
-      background: var(--cream);
-      border-left: 3px solid var(--dusty-rose);
-      padding: 1.5rem 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .tip-card p {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
     /* ── CTA BANNER ── */
     .cta-banner {
       background: var(--ink);
@@ -395,6 +330,22 @@
       margin-top: 0.75rem;
     }
 
+    .btn-gold {
+      display: inline-block;
+      white-space: nowrap;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-gold:hover { background: var(--gold); color: var(--ink); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--cream-dark);
@@ -418,7 +369,7 @@
       nav { padding: 1rem 1.5rem; }
       .hero { padding: 8rem 1.5rem 4rem; }
       .hero::before { display: none; }
-      .intro, .included { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      .voucher-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
       .pull-quote { padding: 3.5rem 1.5rem; }
       .cta-banner { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
@@ -440,8 +391,8 @@
       <ul class="dropdown-menu">
         <li><a href="colour-analysis.html">Colour Analysis</a></li>
         <li><a href="personal-shopping-online.html">Personal Shopping Online</a></li>
-        <li><a href="wardrobe-edit.html" class="active">Wardrobe Edit</a></li>
-        <li><a href="gift-vouchers.html">Gift Vouchers</a></li>
+        <li><a href="wardrobe-edit.html">Wardrobe Edit</a></li>
+        <li><a href="gift-vouchers.html" class="active">Gift Vouchers</a></li>
       </ul>
     </li>
     <li><a href="contact.html">Get in Touch</a></li>
@@ -451,10 +402,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="eyebrow">Services — Wardrobe Edit</span>
-    <h1>A wardrobe that finally<br/><em>works for you.</em></h1>
-    <p>Most of us have more clothes than we think — we just can't see them. A wardrobe edit brings clarity, space, and a fresh sense of possibility to what you already own.</p>
-    <a href="contact.html" class="btn-primary">Book Your Wardrobe Edit</a>
+    <span class="eyebrow">Services — Gift Vouchers</span>
+    <h1>Give the gift of<br/><em>colour.</em></h1>
+    <p>A gift voucher for a colour analysis or styling session is one of those truly personal presents — the kind that stays with someone long after the occasion. Perfect for birthdays, milestones, or simply because.</p>
   </div>
 </section>
 
@@ -464,66 +414,44 @@
   <div class="sb5"></div><div class="sb6"></div><div class="sb7"></div><div class="sb8"></div>
 </div>
 
-<!-- INTRO -->
-<section class="intro">
-  <div class="intro-left">
-    <span class="eyebrow">What it's about</span>
-    <h2>A fresh pair of eyes<br/>on everything<br/><em>you own.</em></h2>
-    <p>It's easy for a wardrobe to accumulate pieces that no longer fit, no longer suit you, or simply never quite worked in the first place. Over time, that clutter can make getting dressed feel harder than it should — and mean that the pieces you actually love get lost in the noise.</p>
-    <p>A wardrobe edit is the chance to start fresh. I'll come to you, and together we'll go through everything you have with honest, practical eyes — keeping what works, letting go of what doesn't, and making sure the wardrobe you're left with is one you can actually use.</p>
+<!-- VOUCHER SECTION -->
+<section class="voucher-section">
+  <div class="voucher-text">
+    <span class="eyebrow">The perfect present</span>
+    <h2>A gift that makes<br/>someone feel truly<br/><em>seen.</em></h2>
+    <p>Sometimes the most meaningful gift isn't something you can wrap — it's an experience that helps someone feel more confident, more like themselves. A gift voucher for a colour analysis or styling session does exactly that.</p>
+    <p>Whether it's for a friend who's been thinking about trying it, a mum who deserves something just for her, or someone going through a new chapter — this is a gift that genuinely makes a difference.</p>
+    <div class="rule"></div>
+    <ul class="voucher-includes">
+      <li>Available for any service — Colour Analysis, Personal Shopping Online, or Wardrobe Edit.</li>
+      <li>Sent digitally or by post — just let me know your preference.</li>
+      <li>Personalised with the recipient's name and a message from you.</li>
+      <li>Valid for 12 months from the date of purchase.</li>
+    </ul>
+    <a href="contact.html" class="btn-primary">Enquire About a Gift Voucher</a>
   </div>
-  <div class="intro-right">
-    <p>This isn't about throwing everything away. It's about understanding what you have, how it fits, and how it all works together. By the end of the session, you'll have a clearer picture of your style, a wardrobe that makes sense, and — more often than not — a newfound appreciation for pieces you'd forgotten you owned.</p>
-    <p>A wardrobe edit also pairs beautifully with a colour analysis or personal styling session. Once you know your colours and style direction, it becomes much easier to see which pieces truly belong in your wardrobe and which ones were never really working for you.</p>
+  <div style="display:flex; align-items:center; justify-content:center;">
+    <div style="text-align:center; padding:4rem 3rem; background:var(--cream-dark); border-top:2px solid var(--gold); max-width:400px; width:100%;">
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:var(--ink); line-height:1.5; margin-bottom:2rem;">"A gift that helps someone feel more like themselves — that's something truly special."</p>
+      <p style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem;">— Stefania</p>
+      <a href="contact.html" class="btn-primary">Get in Touch to Order</a>
+    </div>
   </div>
 </section>
 
 <!-- PULL QUOTE -->
 <div class="pull-quote">
   <blockquote>
-    "You don't need more clothes. You need the right ones — and the clarity to see them."
+    "A gift voucher is more than a present — it's an invitation to discover something new about yourself."
   </blockquote>
   <cite>— Stefania</cite>
 </div>
 
-<!-- WHAT'S INCLUDED + PRICING -->
-<section class="included">
-  <div class="included-left">
-    <span class="eyebrow">What's included</span>
-    <h2>Everything you need<br/>for a wardrobe that<br/><em>works.</em></h2>
-    <div class="rule"></div>
-    <ul class="included-list">
-      <li>A full review of your existing wardrobe, item by item.</li>
-      <li>Honest, supportive guidance on what to keep, alter, donate, or let go.</li>
-      <li>Outfit building from the pieces you already own — making more from less.</li>
-      <li>Identification of any gaps worth filling to complete your wardrobe.</li>
-      <li>Advice on fit, proportion, and how to make your clothes work harder for you.</li>
-      <li>Styling tips tailored to your lifestyle, whether that's work, everyday, or occasions.</li>
-      <li>A clear, organised wardrobe you can actually get dressed from with ease.</li>
-    </ul>
-  </div>
-  <div>
-    <div class="pricing-card">
-      <h3>Wardrobe Edit</h3>
-      <div class="pricing-price"><span>£</span>180</div>
-      <div class="pricing-detail">
-        <p>Up to 3 hours, in person at your home.</p>
-        <p style="margin-top:0.75rem;">From £180 on weekdays · From £210 at weekends.</p>
-        <p style="margin-top:0.75rem;">Please note: additional mileage will be charged for travel over 40 miles.</p>
-      </div>
-      <a href="contact.html" class="btn-primary" style="align-self:flex-start; margin-top:0.5rem;">Book Now</a>
-    </div>
-    <div class="tip-card">
-      <p>"Pair your Wardrobe Edit with a Colour Analysis for the most transformative results — you'll know exactly what stays and exactly what to add."</p>
-    </div>
-  </div>
-</section>
-
 <!-- CTA BANNER -->
 <div class="cta-banner">
   <div>
-    <h2>Ready to rediscover<br/>your <em>wardrobe?</em></h2>
-    <p>Get in touch and let's find a time that works for you.</p>
+    <h2>Ready to give the gift<br/>of <em>colour?</em></h2>
+    <p>Get in touch and I'll take care of everything for you.</p>
   </div>
   <a href="contact.html" class="btn-gold">Book a Consultation</a>
 </div>
